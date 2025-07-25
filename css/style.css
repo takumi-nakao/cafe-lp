@@ -260,6 +260,7 @@ nav a {
 #main-visual {
   position: relative;
   height: 100vh;
+  background-image: url(../img/your-image.jpg); /* ←これを明記 */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -267,6 +268,21 @@ nav a {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  #main-visual {
+    background-position: center top; /* スマホでは上を優先的に表示 */
+    height: 70vh; /* 画面に入りきるように高さを抑える */
+  }
+}
+
+/* 追記する：スマホ時の表示調整 */
+@media (max-width: 768px) {
+  #main-visual {
+    background-position: center top;
+    height: 70vh;
+  }
 }
 
 #image-counter {
