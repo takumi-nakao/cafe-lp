@@ -11,6 +11,41 @@ body {
   padding: 0;
 }
 
+/* PCデザイン（初期） */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.flex-box {
+  display: flex;
+  gap: 20px;
+}
+
+/* スマホ表示では縦並び */
+@media (max-width: 768px) {
+  .flex-box {
+    flex-direction: column;
+  }
+}
+
 section#main-visual .nav-btn {
   position: absolute;
   top: 50%;
