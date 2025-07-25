@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DESIGN CAFE</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Playfair+Display&family=Lora&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>DESIGN CAFE</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="#about"> ABOUT US </a>
+          </li>
+          <li>
+            <a href="#menu"> MENU </a>
+          </li>
+          <li>
+            <a href="#gallery"> GALLERY </a>
+          </li>
+          <li>
+            <a href="#event"> EVENT </a>
+          </li>
+          <li>
+            <a href="#access"> ACCESS </a>
+          </li>
+        </ul>
+      </nav>
+      <div id="menu-toggle">☰</div>
+    </header>
+
+    <main>
+      <section id="main-visual">
+        <div id="image-container">
+          <div id="image-counter"></div>
+          <button id="prev-btn" class="nav-btn">&#9664;</button>
+          <button id="next-btn" class="nav-btn">&#9654;</button>
+        </div>
+      </section>
+
+      <section id="catch-copy">
+        <div class="container">
+          <h2>
+            ハッピーに溢れる1日を<br />
+            1杯のコーヒーから。
+          </h2>
+          <p>Have a happy day from a cup of coffee.</p>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <h3>ABOUT US</h3>
+          <p>私たちが提供するこだわりのコーヒー</p>
+          <!-- 画像とテキスト -->
+        </div>
+      </section>
+
+      <section id="menu">
+        <div class="container">
+          <h3>MENU</h3>
+          <div class="menu-grid">
+            <div class="menu-card">
+              <div class="Drink_image"></div>
+              <h4 style="padding: 20px; font-size: 25px">Drink</h4>
+              <p>香り豊かなドリップコーヒーや季節限定ドリンクをご用意。</p>
+            </div>
+            <div class="menu-card">
+              <div class="Food_image"></div>
+              <h4 style="padding: 20px; font-size: 25px">Food</h4>
+              <p>サンドイッチやキッシュなど軽食メニューも充実。</p>
+            </div>
+            <div class="menu-card">
+              <div class="Sweets_image"></div>
+              <h4 style="padding: 20px; font-size: 25px">Sweets</h4>
+              <p>自家製スイーツで午後のカフェタイムを彩ります。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="gallery">
+        <div class="container">
+          <h3>GALLERY</h3>
+          <div class="gallery-container">
+            <div class="gallery-item">
+              <img
+                src="images/内装/内装1 .jpg"
+                alt="ギャラリー画像1"
+                class="modal-trigger"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="images/内装/内装2.jpg"
+                alt="ギャラリー画像2"
+                class="modal-trigger"
+              />
+            </div>
+            <div class="gallery-item">
+              <img
+                src="images/内装/内装3.jpg"
+                alt="ギャラリー画像3"
+                class="modal-trigger"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="modal hidden" id="imageModal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage" />
+      </div>
+
+      <section id="event">
+        <div class="container">
+          <h3>EVENT</h3>
+          <br />
+          <h3 class="event-title">お知らせ</h3>
+          <div id="event_news">
+            <ul id="newslist">
+              <li>
+                <span class="news_day">2025.07.26</span>
+                <span class="news_txt">2025年7月26日(土)に作成された機能1です。</span>
+              </li>
+              <li>
+                <span class="news_day">2025.07.26</span>
+                <span class="news_txt">2025年7月26日(土)に作成された機能2です。</span>
+              </li>
+              <li>
+                <span class="news_day">2025.07.26</span>
+                <span class="news_txt">2025年7月26日(土)に作成された機能3です。</span>
+              </li>
+              <li>
+                <span class="news_day">2025.07.26</span>
+                <span class="news_txt">2025年7月26日(土)に作成された機能4です。</span>
+              </li>
+              <li>
+                <span class="news_day">2025.07.26</span>
+                <span class="news_txt">2025年7月26日(土)に作成された機能5です。</span>
+              </li>
+              <li>
+                <span class="news_day">2025.07.26</span>
+                <span class="news_txt">2025年7月26日(土)に作成された機能6です。</span>
+              </li>
+              <li>
+                <span class="news_day">2025.07.26</span>
+                <span class="news_txt">2025年7月26日(土)に作成された機能7です。</span>
+              </li>
+              <li>
+                <span class="news_day">2025.07.26</span>
+                <span class="news_txt">2025年7月26日(土)に作成された機能8です。</span>
+              </li>
+              <li>
+                <span class="news_day">2025.07.26</span>
+                <span class="news_txt">2025年7月26日(土)に作成された機能9です。</span>
+              </li>
+              <li>
+                <span class="news_day">2025.07.26</span>
+                <span class="news_txt">2025年7月26日(土)に作成された機能10です。</span>
+              </li>
+              <li>
+                <span class="news_day">2025.07.26</span>
+                <span class="news_txt">2025年7月26日(土)に作成された機能11です。長文テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト</span>
+              </li>
+              <li>
+                <span class="news_day">2025.07.26</span>
+                <span class="news_txt">2025年7月26日(土)に作成された機能12です。</span>
+              </li>
+            </ul>
+        </div>
+      </section>
+      <section id="access">
+        <div class="container">
+          <h3 class="section-title">ACCESS</h3>
+
+          <div class="access-content">
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=..."
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+        <div class="info-container">
+          <h4>DESIGN CAFE</h4>
+          <p><span class="icon">📍</span> 東京都渋谷区神南1-1-1</p>
+          <p><span class="icon">⏰</span> 営業時間：9:00〜20:00（定休日：水曜日）</p>
+          <p><span class="icon">📞</span> 03-1234-5678</p>
+          <p><span class="icon">🌐</span> <a href="https://designcafe.jp" target="_blank">公式サイト</a></p>
+          <p><span class="icon">📱</span> <a href="https://instagram.com/designcafe" target="_blank">Instagram</a></p>
+          <p>最寄駅から徒歩5分。ゆったり落ち着けるレトロな雰囲気です。</p>
+        </div>
+      </div>
+  </div>
+</section>
+    </main>
+
+    <footer>
+      <p style="margin-bottom: 10px;">Old-fashioned coffee, new-fashioned love.</p>
+      <p>～昔ながらのコーヒー 今どきの愛をこめて～</p>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,645 @@
+/* 全体初期設定 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+section#main-visual .nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 2px solid #4b3621;
+  color: transparent; /* 文字は透明に */
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 4px 8px rgba(75, 54, 33, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  font-size: 0; /* 文字サイズゼロに */
+  opacity: 0.5;
+}
+
+#prev-btn::before,
+#next-btn::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid #4b3621;
+  border-right: 3px solid #4b3621;
+  transition: border-color 0.3s ease;
+}
+
+#prev-btn::before {
+  transform: rotate(-135deg); /* 左矢印 */
+}
+
+#next-btn::before {
+  transform: rotate(45deg); /* 右矢印 */
+}
+
+section#main-visual .nav-btn:hover::before {
+  border-color: #fdf4e2; /* ホバー時に色変化 */
+}
+
+/* h1〜h6をまとめて指定 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header h1,
+header nav {
+  font-family: "Playfair Display", serif;
+}
+
+#menu,
+#gallery,
+#event,
+#access {
+  font-size: 25px;
+}
+
+/* 本文や説明文向け */
+body {
+  font-family: "Lora", serif;
+  color: #5f4b3b;
+}
+
+/*containerクラス初期設定*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* スマホでも端がくっつかないように */
+}
+
+/* モーダル表示 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.modal-content {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ふわっと出現 */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+section.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* トップに戻る */
+#scrollToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 20px;
+  background: #4b3621;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: none;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* ハンバーガーメニュー（モバイル用） */
+#menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  header nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #4b3621;
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    width: 200px;
+    padding: 10px;
+  }
+
+  header nav ul.open {
+    display: flex;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+  background-color: transparent; /* 初期は透明 */
+}
+
+header.scrolled {
+  background-color: #4b3621; /* catch-copyに入ったら黒色に */
+}
+
+header h1 {
+  font-size: 45px;
+  margin-left: 5px;
+  color: #fff;
+}
+
+header nav {
+  margin-right: 20px;
+  font-size: 15px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+nav li {
+  margin-left: 10px;
+}
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+/* メインビジュアル */
+/* CSS */
+#main-visual {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#image-counter {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  user-select: none;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#prev-btn {
+  left: 10px;
+}
+
+#next-btn {
+  right: 10px;
+}
+
+/* キャッチコピー */
+#catch-copy {
+  background-color: #fdf4e2;
+  padding: 50px 20px;
+  text-align: center;
+}
+#catch-copy h2 {
+  font-size: 24px;
+  font-family: serif;
+  color: #612b1e;
+  margin-bottom: 10px;
+}
+#catch-copy p {
+  color: #6a4b3c;
+}
+
+/* About Us */
+#about {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: #fdf4e2;
+}
+#about img {
+  width: 300px;
+  border-radius: 8px;
+  margin-right: 30px;
+}
+#about .text {
+  max-width: 500px;
+}
+
+/* MENU */
+#menu {
+  text-align: center;
+  background-color: #fdf4e2;
+  padding: 40px 20px;
+}
+.menu-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.menu-card {
+  width: 300px;
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ← グレーの画像ダミー部分 */
+.Drink_image {
+  width: 100%;
+  height: 300px;
+  background-image: url(../images/Menu/drink.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+  font-size: 14px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.Food_image {
+  width: 100%;
+  height: 300px;
+  background-image: url(../images/Menu/food.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+  font-size: 14px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.Sweets_image {
+  width: 100%;
+  height: 300px;
+  background-image: url(../images/Menu/desert.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+  font-size: 14px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+*/
+
+/* タイトルとテキスト */
+.menu-card h4 {
+  margin: 16px 0 8px;
+  font-size: 20px;
+  color: #333;
+}
+
+.menu-card p {
+  font-size: 14px;
+  color: #666;
+  padding: 0 16px 16px;
+}
+
+#gallery {
+  background-color: #fdf4e2;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#gallery h3 {
+  color: #c0392b;
+  margin-bottom: 30px;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .gallery-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  max-height: 700px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+/* モーダル */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  position: relative;
+  width: 100vh;
+  height: auto;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 30px;
+  color: white;
+  background-color: #333;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+/* EVENT */
+#event {
+  text-align: center;
+  background-color: #fdf0db;
+  padding: 40px 20px;
+}
+#event .event-item {
+  border: 1px solid #999;
+  padding: 10px;
+  margin: 10px auto;
+  max-width: 600px;
+  background: #fff;
+}
+
+.event-title {
+  font-size: 18px;
+  color: #000;
+  border-bottom: 1px solid #000;
+  padding: 0 0 5px;
+  margin: 0 0 10px;
+  text-align: left;
+}
+
+#event_news {
+  height: 150px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+#event_news ul#newslist {
+  height: 150px;
+  overflow-y: auto; /* スクロールバー表示 */
+  overflow-x: hidden;
+  display: block; /* ← これがないと効かないケースがある */
+  padding-left: 1em; /* li のデフォルトのドットがずれないように調整 */
+}
+
+#newslist {
+  display: table;
+  width: 100%;
+}
+
+#newslist li {
+  display: table-row;
+}
+
+.news_day {
+  padding-right: 15px;
+  font-size: 15px;
+}
+
+.news_txt {
+  display: table-cell;
+  color: #000;
+  font-size: 15px;
+  text-align: left;
+}
+
+/* ACCESS */
+#access {
+  padding: 30px 20px 70px;
+  background-color: #fef9f5; /* やさしいレトロ系ベージュ */
+}
+
+#access .section-title {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #4b3621;
+}
+
+.access-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.map-container {
+  flex: 0 0 400px;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.info-container {
+  flex: 1;
+  min-width: 300px;
+  font-family: "Lora", serif;
+  color: #5f4b3b;
+}
+
+.info-container h4 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+}
+
+.info-container p {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .access-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .info-container {
+    width: 100%;
+  }
+}
+
+/*top遷移jsデザイン*/
+#scrollToTop {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: #c4aeaa;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+#scrollToTop:hover {
+  background-color: #380d0d;
+}
+
+/* フッター */
+footer {
+  background-color: #4b3621;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
